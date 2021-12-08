@@ -1,4 +1,4 @@
-- 👋 Hi, I’m @neilip
+- 👋 Hi, I’m @neilpip
 - 🌱 I’m currently learning Python
 
 <!---
