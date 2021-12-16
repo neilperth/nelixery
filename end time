@@ -1,0 +1,14 @@
+hour = int(input("Starting time (hours): "))
+mins = int(input("Starting time (minutes): "))
+dura = int(input("Event duration (minutes): "))
+
+print("Event start: " + str(hour) + ":" + str(mins))
+
+mins_added = mins + dura
+hour_to_add = mins_added // 60
+mins_end = mins_added % 60
+hour_to_add = hour_to_add + hour
+
+hour_to_add = hour_to_add % 24
+
+print("Event end: " + str(hour_to_add) + ":" + str(mins_end))
