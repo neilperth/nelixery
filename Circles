@@ -1,0 +1,26 @@
+#########################################################################
+#
+# Circles
+#
+# File: PortfolioSession3-Circles-Neil Nguyen.py
+# Project: Assignment: Session 3 - Structured code (Sequence)
+# Author: Neil Nguyen (j040282@tafe.wa.edu.au)
+# Copyright: © Copyright 2022, Neil Nguyen
+#
+#########################################################################
+
+pi = 3.14159265
+
+radius = input("What is the radius? ")
+
+diameter = 2 * float(radius)
+
+circumference = 2 * pi * float(radius)
+
+area = pi * float(radius) ** 2
+
+print("The diameter is " + "{:.8f}".format(diameter))
+
+print("The circumference is " + "{:.8f}".format(circumference))
+
+print("The area is " + "{:.8f}".format(area))
