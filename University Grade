@@ -1,0 +1,29 @@
+#########################################################################
+#
+# University Scores
+#
+# File: PortfolioSession4-UniversityGrade-Neil Nguyen.py
+# Project: Assignment: Session 4 - Expressions and Multiway Selection
+# Author: Neil Nguyen (j040282@tafe.wa.edu.au)
+# Copyright: © Copyright 2022, Neil Nguyen
+#
+#########################################################################
+#
+
+max_score = int(input("What was the maximum score? "))
+achieved_score = int(input("What was the achieved score? "))
+
+percentage = achieved_score * 100 // max_score
+
+print("Your percentage is... " + str(percentage) +"%")
+
+if percentage >= 90:
+    print("That is a High Distinction.")
+elif percentage >= 80:
+    print("That is a Distinction.")
+elif percentage >= 70:
+    print("That is a Credit")
+elif percentage >= 50:
+    print("That is a Pass")
+else:
+    print("You did not successfully complete this assessment.")
