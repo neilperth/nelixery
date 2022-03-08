@@ -1,0 +1,33 @@
+from random import randint
+
+random_number = randint(1, 100)
+max_guesses = 9    # The assessment instruction is 10 but if 9, the game properly stops after 9 instead of 10
+guess_count = 0
+# print(random_number)    Diagnostic print statement
+
+user_guess = int(input("Guess a whole number between 0 and 100, 0 to quit the game: "))
+
+while True:
+    if user_guess < 0 or user_guess > 100:
+        print("Only whole numbers between 0 and 100 are valid, 0 to guit the game")
+        user_guess = int(input("Guess a whole number between 0 and 100, 0 to quit the game: "))
+    elif user_guess != random_number and guess_count < max_guesses and user_guess != 0:
+        guess_count += 1
+        if user_guess > random_number:
+            print("You guessed too high")
+            print(str(guess_count) + " legitimate guess(es) so far")
+        elif user_guess < random_number:
+            print("You guessed too low")
+            print(str(guess_count) + " legitimate guess(es) so far")
+        user_guess = int(input("Guess another number between 0 and 100, 0 to quit the game: "))
+    elif user_guess == random_number:
+        guess_count += 1
+        print("Well done you guessed the number")
+        print("You took a total " + str(guess_count) + " legitimate guess(es)")
+        break
+    elif user_guess == 0:
+        print("You quit before we'd finished...")
+        break
+    else:
+        print("Sorry you failed to guess the secret number, which was " + str(random_number))
+        break
