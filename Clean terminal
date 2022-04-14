@@ -1,0 +1,3 @@
+print("\033c")
+
+print("Remember to print '\\033c' at the beginning of every file in VS Code to remove the path noise.")
