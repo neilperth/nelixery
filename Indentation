@@ -1,9 +1,0 @@
-n = 3
-
-for i in range(n):
-    print("\n" +str(i))
-    print("This loop is not correctly ending")
-
-for i in range(n):
-    print("\n" +str(i))
-print("This loops has ended correctly")
