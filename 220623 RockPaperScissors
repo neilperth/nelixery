@@ -1,0 +1,215 @@
+// Added menu feature on 23/06/22
+
+using System;
+
+namespace MyFirstProgram
+{
+    class Program
+    {
+        static void Main()
+        {
+            Random random = new Random();
+            bool play_again = true;
+            String player;
+            String computer;
+            String replay;
+            String player_name;
+
+            bool menu = true;
+            String selection;
+
+            while (menu)
+            {
+                Console.WriteLine("1 - Start a match");
+                Console.WriteLine("2 - Exit game");
+                selection = Console.ReadLine();
+
+                if (selection == "1")
+                {
+                    play_again = true;
+                    break;
+                }
+                else if (selection == "2")
+                {
+                    play_again = false;
+                    break;
+                }
+                else if (selection != "1" ^ selection != "2")
+                {
+                    menu = true;
+                    break;
+                }
+            }
+
+            while (play_again)
+            {
+                Console.WriteLine("This is a game of Rock, Paper, Scissors, Lizard, Spock.");
+                Console.WriteLine("What is your name? ");
+                player_name = Console.ReadLine();
+                Console.WriteLine("Welcome, " + player_name + ".");
+
+                player = "";
+                computer = "";
+                replay = "";
+
+                while (player != "ROCK" && player != "PAPER" && player != "SCISSORS" && player != "LIZARD" && player != "SPOCK")
+                {
+                    Console.Write("Enter ROCK, PAPER, SCISSORS, LIZARD or SPOCK: ");
+                    player = Console.ReadLine();
+                    player = player.ToUpper();
+                }
+                switch (random.Next(1, 6))
+                {
+                    case 1:
+                        computer = "ROCK";
+                        break;
+                    case 2:
+                        computer = "PAPER";
+                        break;
+                    case 3:
+                        computer = "SCISSORS";
+                        break;
+                    case 4:
+                        computer = "LIZARD";
+                        break;
+                    case 5:
+                        computer = "SPOCK";
+                        break;
+                }
+                Console.WriteLine(player_name + ": " + player);
+                Console.WriteLine("Computer: " + computer);
+
+                switch (player)
+                {
+                    case "ROCK":
+                        if (computer == "ROCK")
+                        {
+                            Console.WriteLine("You tie.");
+                        }
+                        else if (computer == "SPOCK")
+                        {
+                            Console.WriteLine("You lose.");
+                        }
+                        else if (computer == "PAPER")
+                        {
+                            Console.WriteLine("You lose.");
+                        }
+                        else if (computer == "SCISSORS")
+                        {
+                            Console.WriteLine("You win.");
+                        }
+                        else
+                        {
+                            Console.WriteLine("You win.");
+                        }
+                        break;
+                    case "PAPER":
+                        if (computer == "ROCK")
+                        {
+                            Console.WriteLine("You win.");
+                        }
+                        else if (computer == "SPOCK")
+                        {
+                            Console.WriteLine("You win.");
+                        }
+                        else if (computer == "PAPER")
+                        {
+                            Console.WriteLine("You tie.");
+                        }
+                        else if (computer == "SCISSORS")
+                        {
+                            Console.WriteLine("You lose.");
+                        }
+                        else
+                        {
+                            Console.WriteLine("You lose.");
+                        }
+                        break;
+                    case "SCISSORS":
+                        if (computer == "ROCK")
+                        {
+                            Console.WriteLine("You lose.");
+                        }
+                        else if (computer == "SPOCK")
+                        {
+                            Console.WriteLine("You lose.");
+                        }
+                        else if (computer == "PAPER")
+                        {
+                            Console.WriteLine("You win.");
+                        }
+                        else if (computer == "SCISSORS")
+                        {
+                            Console.WriteLine("You tie.");
+                        }
+                        else
+                        {
+                            Console.WriteLine("You win.");
+                        }
+                        break;
+                    case "LIZARD":
+                        if (computer == "ROCK")
+                        {
+                            Console.WriteLine("You lose.");
+                        }
+                        else if (computer == "SPOCK")
+                        {
+                            Console.WriteLine("You win.");
+                        }
+                        else if (computer == "PAPER")
+                        {
+                            Console.WriteLine("You win.");
+                        }
+                        else if (computer == "SCISSORS")
+                        {
+                            Console.WriteLine("You lose.");
+                        }
+                        else
+                        {
+                            Console.WriteLine("You tie.");
+                        }
+                        break;
+                    case "SPOCK":
+                        if (computer == "ROCK")
+                        {
+                            Console.WriteLine("You win.");
+                        }
+                        else if (computer == "SPOCK")
+                        {
+                            Console.WriteLine("You tie.");
+                        }
+                        else if (computer == "PAPER")
+                        {
+                            Console.WriteLine("You lose.");
+                        }
+                        else if (computer == "SCISSORS")
+                        {
+                            Console.WriteLine("You win.");
+                        }
+                        else
+                        {
+                            Console.WriteLine("You lose.");
+                        }
+                        break;
+                }
+
+                Console.Write("Would you like to play again? (Y/N) ");
+                replay = Console.ReadLine();
+                replay = replay.ToUpper();
+
+                if (replay == "Y")
+                {
+                    play_again = true;   
+                }
+                else
+                {
+                    play_again = false;
+                }
+            }
+
+            Console.WriteLine("Thanks for playing. Press any key. Goodbye.");
+
+            Console.ReadKey();
+        }
+    }
+}
