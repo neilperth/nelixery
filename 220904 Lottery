@@ -1,0 +1,74 @@
+int exit = 0;
+
+while (exit == 0)
+{
+    Console.Clear();
+    string con = ""; // con used for continue variable because continue keyword is a C# statement
+    Console.WriteLine("Enter six numbers between 1 to 35 separated by a comma. Ensure no duplicates.");
+    string userInput = Console.ReadLine();
+    string[] playerNumbers = userInput.Replace(" ", "").Split(new string[] { "," }, StringSplitOptions.RemoveEmptyEntries).ToArray(); // Omit empty strings
+    string[] checkDup = playerNumbers.Distinct().ToArray(); // Remove duplicates
+    if (playerNumbers.Count() < 6)
+    {
+        Console.WriteLine("You entered less than six numbers");
+        Console.WriteLine("Try Again Y or N");
+        con = Console.ReadLine();
+        if (con.ToUpper() != "Y")
+        {
+            exit = 1;
+        }
+    }
+    else if (playerNumbers.Count() > 6)
+    {
+        Console.WriteLine("You entered more than 6 numbers");
+        Console.WriteLine("Try Again Y or N");
+        con = Console.ReadLine();
+        if (con.ToUpper() != "Y")
+        {
+            exit = 1;
+        }
+    }
+    else if (checkDup.Count() < 6)
+    {
+        Console.WriteLine("You entered duplicate numbers");
+        Console.WriteLine("Try Again Y or N");
+        con = Console.ReadLine();
+        if (con.ToUpper() != "Y")
+        {
+            exit = 1;
+        }
+    }
+    else
+    {
+        var lowerBound = 1;
+        var upperBound = 100;
+        var random = new Random();
+        int[] randomNum = new int[6];
+        int count = 0;
+        foreach (string str in playerNumbers)
+        {
+            var rNum = random.Next(lowerBound, upperBound);
+            randomNum[count] = rNum;
+            count++;
+
+        }
+
+        string[] ourPicks = Array.ConvertAll(randomNum, s => s.ToString()).ToArray();
+        Array.Sort(playerNumbers);
+        Array.Sort(ourPicks);
+        //string[] ourpicks = { "1", "2" };//for testing
+        Console.WriteLine("Your Numbers: {0}", string.Join(", ", playerNumbers));
+        Console.WriteLine("Our Numbers: {0}", string.Join(", ", ourPicks));
+        string[] result = playerNumbers.Intersect(ourPicks).ToArray();
+        if (result.Count() > 0)
+        {
+            Console.WriteLine("Matchs: {0}", string.Join(", ", result));
+        }
+        else
+        {
+            Console.WriteLine("Match's = 0");
+        }
+        exit = 1;
+    }
+}
+Console.ReadLine();
