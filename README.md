@@ -1,5 +1,5 @@
-- 👋 Hi, I’m @neilpip
-- 🌱 I'm Neil, and I'm learning Python in Perth
+- 👋 Hi, I’m @neilpipped
+- 🌱 I'm Neil - Programming in Perth && Programming Every Day
 
 <!---
 neilpip/neilpip is a ✨ special ✨ repository because its `README.md` (this file) appears on your GitHub profile.
